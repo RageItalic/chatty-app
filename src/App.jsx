@@ -25,9 +25,8 @@ class App extends Component {
   componentDidMount(){
     setTimeout(() => {
       console.log("Simulating incoming message");
-      // Add a new message to the list of messages in the data store
-
-    }, 3000)
+      }, 9000)
+    var exampleSocket = new WebSocket("ws://localhost:4000")
   }
 
   pressEnter = (message) => {
