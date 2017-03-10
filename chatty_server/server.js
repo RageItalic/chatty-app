@@ -3,6 +3,7 @@ const uuidV4 = require('uuid/v4');
 
 const express = require('express');
 const SocketServer = require('ws').Server;
+const randomColor = require('random-color')
 
 // Set the port to 4000
 const PORT = 4000;
@@ -38,7 +39,8 @@ wss.on('connection', (ws) => {
     jsonMessage.id = uuidV4();
     if(jsonMessage.type==="postMessage"){
     jsonMessage.type = "incomingMessage";
-    jsonMessage.users = `${wss.clients.size } Users online`
+    jsonMessage.users = `${wss.clients.size} Users online`;
+    jsonMessage.color = randomColor().hexString();
     console.log(jsonMessage);
   }else{
     jsonMessage.type = "incomingNotification";
